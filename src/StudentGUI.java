@@ -26,21 +26,93 @@ public class StudentGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        btnadd = new javax.swing.JButton();
+        txtname = new javax.swing.JTextField();
+        txtmark1 = new javax.swing.JTextField();
+        txtmark2 = new javax.swing.JTextField();
+        txtmark3 = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("Name:");
+
+        btnadd.setText("Add");
+        btnadd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaddActionPerformed(evt);
+            }
+        });
+
+        txtname.setEditable(false);
+        txtname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnameActionPerformed(evt);
+            }
+        });
+
+        txtmark1.setEditable(false);
+
+        txtmark2.setEditable(false);
+
+        txtmark3.setEditable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtmark3, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtmark2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                        .addComponent(txtmark1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtname, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addGap(30, 30, 30)
+                .addComponent(btnadd)
+                .addContainerGap(170, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnadd))
+                .addGap(34, 34, 34)
+                .addComponent(txtmark1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtmark2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtmark3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(150, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtnameActionPerformed
+
+    private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
+        StudentPopup spop = new StudentPopup(this, true);
+        spop.setModal(true);
+        spop.setLocationRelativeTo(this);
+        spop.setVisible(true);
+        //this code wont run until popup is disposed
+        String name = spop.getName();
+        int m[] = spop.getMarks();
+        txtname.setText(name);
+        txtmark1.setText("" +m[0]);
+        txtmark2.setText("" +m[1]);
+        txtmark3.setText("" +m[2]);
+        
+    }//GEN-LAST:event_btnaddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +150,11 @@ public class StudentGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnadd;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField txtmark1;
+    private javax.swing.JTextField txtmark2;
+    private javax.swing.JTextField txtmark3;
+    private javax.swing.JTextField txtname;
     // End of variables declaration//GEN-END:variables
 }
