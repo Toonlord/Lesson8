@@ -133,6 +133,10 @@ public class StudentPopup extends javax.swing.JDialog {
 
     private void btnokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnokActionPerformed
         this.dispose();
+        if (whichmark == 1) return test[0];
+	else if (whichmark ==2) return test[1];
+	else return test[2];
+        return name;
     }//GEN-LAST:event_btnokActionPerformed
 
     /**
